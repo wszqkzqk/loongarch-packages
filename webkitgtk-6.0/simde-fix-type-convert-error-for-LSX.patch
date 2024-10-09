@@ -1,0 +1,46 @@
+--- a/Source/WTF/wtf/simde/arm/neon.h    2024-08-19 14:28:38.000000000 +0800
++++ a/Source/WTF/wtf/simde/arm/neon.h    2024-10-09 15:06:46.000000000 +0800
+@@ -8782,6 +8782,7 @@
+     !(defined(HEDLEY_MSVC_VERSION) && defined(__clang__)) && \
+     !(defined(SIMDE_ARCH_MIPS) && defined(__clang__)) && \
+     !(defined(SIMDE_ARCH_ZARCH) && defined(__clang__)) && \
++    !(defined(SIMDE_ARCH_LOONGARCH) && defined(__clang__)) && \
+     !(defined(__clang__) && defined(SIMDE_ARCH_RISCV64)) && ( \
+       defined(SIMDE_X86_AVX512FP16_NATIVE) || \
+       (defined(SIMDE_ARCH_X86_SSE2) && HEDLEY_GCC_VERSION_CHECK(12,0,0)) || \
+@@ -92871,7 +92872,7 @@
+       #elif defined(SIMDE_ARM_NEON_A32V8_NATIVE)
+         r_.neon_f32 = vrndnq_f32(a_.neon_f32);
+       #elif defined(SIMDE_LOONGARCH_LSX_NATIVE)
+-        r_.lsx_i64 = __lsx_vfrintrne_s(a_.lsx_f32);
++        r_.lsx_f32 = __lsx_vfrintrne_s(a_.lsx_f32);
+       #elif defined(SIMDE_WASM_SIMD128_NATIVE)
+         r_.wasm_v128 = wasm_f32x4_nearest(a_.wasm_v128);
+       #elif defined(simde_math_roundevenf)
+@@ -92890,7 +92891,7 @@
+       #elif defined(SIMDE_ARM_NEON_A32V8_NATIVE)
+         r_.neon_f32 = vrndmq_f32(a_.neon_f32);
+       #elif defined(SIMDE_LOONGARCH_LSX_NATIVE)
+-        r_.lsx_i64 = __lsx_vfrintrm_s(a_.lsx_f32);
++        r_.lsx_f32 = __lsx_vfrintrm_s(a_.lsx_f32);
+       #elif defined(SIMDE_WASM_SIMD128_NATIVE)
+         r_.wasm_v128 = wasm_f32x4_floor(a_.wasm_v128);
+       #elif defined(simde_math_floorf)
+@@ -92909,7 +92910,7 @@
+       #elif defined(SIMDE_ARM_NEON_A32V8_NATIVE)
+         r_.neon_f32 = vrndpq_f32(a_.neon_f32);
+       #elif defined(SIMDE_LOONGARCH_LSX_NATIVE)
+-        r_.lsx_i64 = __lsx_vfrintrp_s(a_.lsx_f32);
++        r_.lsx_f32 = __lsx_vfrintrp_s(a_.lsx_f32);
+       #elif defined(SIMDE_WASM_SIMD128_NATIVE)
+         r_.wasm_v128 = wasm_f32x4_ceil(a_.wasm_v128);
+       #elif defined(simde_math_ceilf)
+@@ -92928,7 +92929,7 @@
+       #elif defined(SIMDE_ARM_NEON_A32V8_NATIVE)
+         r_.neon_f32 = vrndq_f32(a_.neon_f32);
+       #elif defined(SIMDE_LOONGARCH_LSX_NATIVE)
+-        r_.lsx_i64 = __lsx_vfrintrz_s(a_.lsx_f32);
++        r_.lsx_f32 = __lsx_vfrintrz_s(a_.lsx_f32);
+       #elif defined(SIMDE_WASM_SIMD128_NATIVE)
+         r_.wasm_v128 = wasm_f32x4_trunc(a_.wasm_v128);
+       #elif defined(simde_math_truncf)

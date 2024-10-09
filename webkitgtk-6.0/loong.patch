@@ -1,0 +1,21 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index f60c269..05873c0 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -118,6 +118,7 @@ validpgpkeys=(
+ 
+ prepare() {
+   cd webkitgtk-$pkgver
++  patch -p1 -i "${srcdir}/simde-fix-type-convert-error-for-LSX.patch"
+ }
+ 
+ build() {
+@@ -182,4 +183,8 @@ package_webkitgtk-6.0-docs() {
+   mv doc/* "$pkgdir"
+ }
+ 
++source+=("simde-fix-type-convert-error-for-LSX.patch")
++sha256sums+=('a1db73e0a58bbe1d0772808d91f2a958c84f17414477dd305147dd55aba4c263')
++b2sums+=('6ccf181bf35a0541b94bd760c1ec08bf5ec8f5ad31c269d833e5df31972e5663bc0c3bb4f166a57aed478ce6e9e8b140fd77a3567f5cdf8be071cbddd0c16aa8')
++
+ # vim:set sw=2 sts=-1 et:
