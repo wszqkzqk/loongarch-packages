@@ -1,5 +1,5 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index 632c907..e336c8b 100644
+index 86ac9c8..6b635d6 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -27,6 +27,7 @@ optdepends=('pipewire: WebRTC desktop sharing under Wayland'
@@ -10,7 +10,7 @@ index 632c907..e336c8b 100644
  source=(https://commondatastorage.googleapis.com/chromium-browser-official/chromium-$pkgver-lite.tar.xz
          https://github.com/foutrelis/chromium-launcher/archive/v$_launcher_ver/chromium-launcher-$_launcher_ver.tar.gz
          chromium-138-nodejs-version-check.patch
-@@ -47,6 +48,8 @@ sha256sums=('02a0d17f811bb780e5b81bb457200bf1c95a49a78ce7e023d0367c30c38fda7c'
+@@ -47,6 +48,8 @@ sha256sums=('e1a15924aeeee3cbd76cf15fd2dce755acea2a7cb034ea2993fd02dd63738764'
  if (( _manual_clone )); then
    source[0]=fetch-chromium-release
    makedepends+=('python-httplib2' 'python-pyparsing' 'python-six' 'npm' 'rsync')
@@ -46,7 +46,7 @@ index 632c907..e336c8b 100644
  
 +source+=("chromium-loong64-support.patch"
 +         "allow-sched_getaffinity-in-seccomp-for-loong64.patch")
-+sha256sums+=('25756af6b3d96f5b2a74e1b53fd79d4e6afe1a855050aee3987cf5118e8c13ea'
++sha256sums+=('e2ba40b9ec4da6e6b796b72fc47b324848b88494163bc61ef427c09b5f96f690'
 +             'b48d40e93f020b5e8861f1f320437984d8f7d62c568ad1995af78e49e88de7a9')
 +
  # vim:set ts=2 sw=2 et:
